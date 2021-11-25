@@ -1,4 +1,4 @@
-# community.greengrass.nodered.docker
+# aws.greengrass.labs.nodered.docker
 
 This component deploys [Node-RED](https://nodered.org/) onto a Greengrass device using the nodered/node-red container from Docker Hub. The Node-Red environment has access to all the environment variable resources set by Greengrass which allows to interact with Greengrass services and other component such as TokenExchangeServer and StreamManager. For this it uses `host` networking mode. If you prefer running the container with `bridge` networking or dedicated networking you might not be able to access external services without additional configuration of the host.
 
@@ -36,7 +36,7 @@ When you deploy a component, AWS IoT Greengrass also deploys compatible versions
 | Greengrass nucleus | >=2.0.0 <2.5.0 | Soft |
 | Token exchange service | >=0.0.0 | Hard |
 | Docker Application Manager | >=0.0.0 | Soft |
-| community.greengrass.nodered.auth | ~1.0.0 | Hard |
+| aws.greengrass.labs.nodered.auth | ~1.0.0 | Hard |
 
 ## Configuration
 
@@ -52,7 +52,7 @@ Configure Node-RED to run in headless mode. No UI will be available.
 This component uses the following log file:
 
 ```bash
-/greengrass/v2/logs/community.greengrass.nodered.docker.log
+/greengrass/v2/logs/aws.greengrass.labs.nodered.docker.log
 ```
 
 
