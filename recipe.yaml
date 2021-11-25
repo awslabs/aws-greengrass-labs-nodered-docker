@@ -10,9 +10,6 @@ ComponentConfiguration:
   DefaultConfiguration:
     headless: "false"
 ComponentDependencies:
-  aws.greengrass.Nucleus:
-    VersionRequirement: ">=2.0.0 <2.5.0"
-    DependencyType: SOFT
   aws.greengrass.DockerApplicationManager:
     VersionRequirement: ">0.0.0"
     DependencyType: SOFT
