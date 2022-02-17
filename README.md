@@ -65,3 +65,6 @@ The following table describes the changes in each version of the component.
 | 2.1.3 | Initial version for Node-RED 2.1.3 |
 
 
+## Thank you
+
+This component would have not been possible without the great work done by Node-RED at [nodered.org](https://nodered.org/) and the effort put in creating the official docker containers at https://hub.docker.com/r/nodered/node-red.
