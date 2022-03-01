@@ -5,10 +5,10 @@
         "author": "Amazon Web Services",
         "build": {
             "build_system": "custom",
-            "custom_build_command": ["date"]
+            "custom_build_command": ["cp", "recipe.yaml", "greengrass-build/recipes"]
         },
         "publish": {
-            "bucket": "<your-bucket-prefix>",
+            "bucket": "<s3-bucket-prefix>",
             "region": "eu-west-1"
         }
     }
