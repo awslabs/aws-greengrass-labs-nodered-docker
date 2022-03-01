@@ -5,7 +5,9 @@ This component deploys [Node-RED](https://nodered.org/) onto a Greengrass device
 To allow this component to use Greengrass IPC you need to add an `accessControl` section in the component configuration as explained in [Authorize components to perform IPC operations](https://docs.aws.amazon.com/greengrass/v2/developerguide/interprocess-communication.html#ipc-authorization-policies).
 
 
-This component installs a specific version of Node-RED and for consistency the component version tracks the Node-RED version being deployed.
+This component installs a specific version of Node-RED and for consistency the component version tracks the Node-RED version being deployed. 
+
+To remotely deploy flows to Greengrass Core devices running this component you can use the [Greengrass CLI for Node-RED](https://github.com/awslabs/aws-greengrass-labs-node-red-app-cli).
 
 ## Versions
 This component has the following versions:
