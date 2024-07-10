@@ -12,8 +12,8 @@ To remotely deploy flows to Greengrass Core devices running this component you c
 
 This component has the following versions:
 
-- 2.1.3
 - 4.0.2
+- 2.1.3
 
 ## Type
 
@@ -31,13 +31,13 @@ This component requires Docker to be present on the device running Greengrass. I
 
 The default user in the NodeRed docker container is `1000:1000`. In order for the container to be able to access the persisted `/data` folder on the device, the component needs to run as the same user. Specify `"runAs":"1000:1000"` in the deployment configuration of this component.
 For the same reason also the component `aws.greengrass.labs.nodered.auth` needs to be deployed with `"runAs":"1000:1000"`.
-If you are using the console to configure the deployment options of each component, enter `1000` and **Linux System User** and **Linux System Group**.
+If you are using the console to configure the deployment options of each component, enter `1000` as **Linux System User** and **Linux System Group**.
 
 ## Dependencies
 
 When you deploy a component, AWS IoT Greengrass also deploys compatible versions of its dependencies. This means that you must meet the requirements for the component and all of its dependencies to successfully deploy the component. This section lists the dependencies for the released versions of this component and the semantic version constraints that define the component versions for each dependency. You can also view the dependencies for each version of the component in the [AWS IoT Greengrass console](https://console.aws.amazon.com/greengrass). On the component details page, look for the Dependencies list.
 
-### 4.0.2
+### v4.0.2
 
 | Dependency                       | Compatible versions | Dependency type |
 | -------------------------------- | ------------------- | --------------- |
