@@ -3,7 +3,7 @@
 
 RecipeFormatVersion: 2020-01-25
 ComponentName: aws.greengrass.labs.nodered.docker
-ComponentVersion: 2.1.3
+ComponentVersion: 4.0.2
 ComponentDescription: Run Node-RED in a container
 ComponentPublisher: Amazon Web Services
 ComponentConfiguration:
@@ -23,13 +23,16 @@ Manifests:
       Install:
         Script: |-
           mkdir -p data
-          cat > settings.js <<EOF
+      Run:
+        Script: >-
+          cat > data/settings.js <<EOF
+
           module.exports = {
               flowFile: "flows.json",
               flowFilePretty: false,
-              userDir: "{work:path}/data",
+              userDir: "/data",
               uiPort: 1880,
-              uiHost: "127.0.0.1",
+              uiHost: "0.0.0.0",
               logging: {
                   console: {
                       level: "info",
@@ -56,11 +59,10 @@ Manifests:
               serialReconnectTime: 15000,
           EOF
 
-          cat {aws.greengrass.labs.nodered.auth:work:path}/auth.js >>settings.js 
-          
-          echo "}" >> settings.js
-      Run:
-        Script: >-
+          cat {aws.greengrass.labs.nodered.auth:work:path}/auth.js >> data/settings.js 
+
+          echo "}" >> data/settings.js
+
           docker run --rm 
           -p 127.0.0.1:1880:1880 
           -v {kernel:rootPath}/ipc.socket:{kernel:rootPath}/ipc.socket 
@@ -71,6 +73,9 @@ Manifests:
           -e SVCUID 
           -e AWS_IOT_THING_NAME 
           -v $PWD/data:/data 
-          nodered/node-red:2.1.3
+          --name node-red
+          nodered/node-red:4.0.2
+      Shutdown:
+        Script: docker stop node-red
     Artifacts:
-      - Uri: docker:nodered/node-red:2.1.3
+      - Uri: docker:nodered/node-red:4.0.2
